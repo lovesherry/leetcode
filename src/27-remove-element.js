@@ -1,9 +1,15 @@
 var removeElement = function (nums, val) {
-    for (var i = 0; i < nums.length; i++) {
-        if (nums[i] === val) {
-            nums.splice(i, 1);
-            i--;
+    var i=0,j=0;
+    for(;j<nums.length;j++){
+        if(nums[j]!==val){
+            if(i!==j){
+                nums[i] = nums[j]; 
+            }       
+            i++;            
         }
     }
-    return nums.length;
+    for(var k=nums.length-1;k>=i;k--){
+        nums[k] = val;
+    }
+    return nums.length-i;
 };
